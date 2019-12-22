@@ -1,0 +1,6 @@
+{
+    "download": {
+        "path": "../downloads/",
+        "delay": 200
+    }
+}
