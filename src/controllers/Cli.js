@@ -19,8 +19,6 @@ class Cli {
             const urlName = match[1];
             const setId = match[2];
 
-            console.log(`Downloading ${urlName}'s photoset ${setId}...`);
-
             try {
                 await photoService.downloadSet(urlName, setId);
             } catch (error) {

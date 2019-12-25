@@ -34,9 +34,11 @@ class PhotoService {
                 console.error(err);
             });
 
+            console.log(`Downloading ${urlName}'s photoset "${setName}"`);
+
             let photoCount = 1;
             for (const info of photoDownloadInfos) {
-                console.log(`(${photoCount}/${photoDownloadInfos.length}) Downloading photo ${info.name}`);
+                console.log(`(${photoCount}/${photoDownloadInfos.length}) Downloading photo "${info.name}"`);
 
                 await this.download(info.url, setPath + info.name + '.jpg');
                 await Utils.msleep(this.downloadDelay);
