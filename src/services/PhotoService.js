@@ -2,6 +2,8 @@ import axios from 'axios';
 import config from 'config';
 import mkdirp from 'mkdirp';
 import fs from 'fs';
+import sanitize from 'sanitize-filename';
+
 import flickrModel from '../models/FlickrModel'
 import Utils from '../utils'
 
@@ -21,13 +23,13 @@ class PhotoService {
             let photoDownloadInfos = [];
             for (const info of photoInfos) {
                 const downloadInfo = new PhotoDownloadInfo();
-                downloadInfo.name = info.title;
+                downloadInfo.name = sanitize(info.title);
                 downloadInfo.url = await flickrModel.getLargestPhotoUrl(info.id);
                 if (downloadInfo.url) {
                     photoDownloadInfos.push(downloadInfo);
                 }
             }
-
+            
             const setName = setInfo ? setInfo.title._content : 'untitled';
             const setPath = this.downloadPath + urlName + '/' + setName +'/';
             mkdirp.sync(setPath, (err) => {
