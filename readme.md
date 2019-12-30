@@ -15,7 +15,7 @@ Downloading flickr's photoset "Catchy Colors"
 (8/23) Downloading photo "Catchy Colors: Silver"
 ```
 
-## Usage
+## Setup
 
 1. Install dependencies
 
@@ -29,7 +29,9 @@ $ npm install
 API_KEY = [Assign your API key here]
 ```
 
-3. Run the node and pass the url of photo set you want to download as parameter.
+## Usage
+
+Run the node and pass the url of photo set you want to download as parameter.
 
 ```
 $ node index.js https://www.flickr.com/photos/flickr/albums/72157656845052880
