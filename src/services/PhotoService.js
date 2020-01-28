@@ -30,7 +30,7 @@ class PhotoService {
                 }
             }
             
-            const setName = setInfo ? setInfo.title._content : 'untitled';
+            const setName = setInfo ? setInfo.id + '_' + setInfo.title._content : 'untitled';
             const setPath = this.downloadPath + urlName + '/' + setName +'/';
             mkdirp.sync(setPath, (err) => {
                 console.error(err);
@@ -42,7 +42,8 @@ class PhotoService {
             for (const info of photoDownloadInfos) {
                 console.log(`(${photoCount}/${photoDownloadInfos.length}) Downloading photo "${info.name}"`);
 
-                await this.download(info.url, setPath + info.name + '.jpg');
+                const countString = photoCount.toString().padStart(3, '0');
+                await this.download(info.url, setPath + countString + '_' + info.name + '.jpg');
                 await Utils.msleep(this.downloadDelay);
                 photoCount++;
             }
