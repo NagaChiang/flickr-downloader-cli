@@ -31,7 +31,7 @@ API_KEY = [Assign your API key here]
 
 ## Usage
 
-Run the node and pass the url of photo set you want to download as parameter.
+Run the node and pass the urls of the photo sets you want to download as parameters.
 
 ```
 $ node index.js https://www.flickr.com/photos/flickr/albums/72157656845052880
@@ -44,6 +44,10 @@ Downloading flickr's photoset "Catchy Colors"
 (6/23) Downloading photo "Catchy Colors: Red"
 (7/23) Downloading photo "CatchyColors: White"
 (8/23) Downloading photo "Catchy Colors: Silver"
+```
+
+```
+$ node index.js [url1] [url2] [url3] ...
 ```
 
 For now it only downloads the largest photos.

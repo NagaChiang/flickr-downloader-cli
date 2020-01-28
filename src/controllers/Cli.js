@@ -12,20 +12,22 @@ class Cli {
             console.log('Please enter the url of the Flickr photoset.');
         }
 
-        const url = args._[0];
-        const regex = /photos\/(.+)\/albums\/(.+)($|\/)/g;
-        const match = regex.exec(url);
-        if (match) {
-            const urlName = match[1];
-            const setId = match[2];
+        let regex = /photos\/(.+)\/albums\/(.+)($|\/)/g;
+        for (const url of args._) {
+            regex.lastIndex = 0;
+            const match = regex.exec(url);
+            if (match) {
+                const urlName = match[1];
+                const setId = match[2];
 
-            try {
-                await photoService.downloadSet(urlName, setId);
-            } catch (error) {
-                console.log(error);
+                try {
+                    await photoService.downloadSet(urlName, setId);
+                } catch (error) {
+                    console.log(error);
+                }
+            } else {
+                console.log('Invalid photoset url: ' + url);
             }
-        } else {
-            console.log('Invalid photoset url.');
         }
     }
 }
