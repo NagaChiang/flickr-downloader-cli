@@ -30,11 +30,9 @@ class PhotoService {
         }
       }
 
-      const setName = setInfo ? setInfo.id + '_' + setInfo.title._content : 'untitled';
+      const setName = setInfo ? setInfo.id + '_' + sanitize(setInfo.title._content) : 'untitled';
       const setPath = this.downloadPath + urlName + '/' + setName + '/';
-      mkdirp.sync(setPath, (err) => {
-        console.error(err);
-      });
+      await mkdirp(setPath);
 
       console.log(`Downloading ${urlName}'s photoset "${setName}"`);
 
