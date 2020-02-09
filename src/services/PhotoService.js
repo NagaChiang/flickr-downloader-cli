@@ -1,6 +1,6 @@
 import axios from 'axios';
 import config from 'config';
-import mkdirp from 'mkdirp';
+import mkdirp from 'mkdirp-promise';
 import fs from 'fs';
 import sanitize from 'sanitize-filename';
 
