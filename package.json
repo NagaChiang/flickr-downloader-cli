@@ -13,6 +13,10 @@
     "CLI",
     "Flickr"
   ],
+  "repository" : {
+    "type": "git",
+    "url": "https://github.com/NagaChiang/flickr-downloader-cli.git"
+  },
   "author": "Naga Chiang",
   "license": "MIT",
   "dependencies": {
