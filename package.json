@@ -20,7 +20,7 @@
   "author": "Naga Chiang",
   "license": "MIT",
   "dependencies": {
-    "axios": "^0.19.2",
+    "axios": "^0.21.1",
     "config": "^3.2.5",
     "dotenv": "^8.2.0",
     "esm": "^3.2.25",
